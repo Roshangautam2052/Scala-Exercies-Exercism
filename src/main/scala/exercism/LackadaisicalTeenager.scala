@@ -18,13 +18,15 @@ Bob only ever answers one of five things:
 package exercism
 
 class LackadaisicalTeenager {
-  def determineBobReply(question: String): String = {
-    if(question.endsWith("?")) {
-      if(question.matches("^[A-Z]+ \\?$")) "Calm down, I know what I'm doing!"
-      else "Sure"
+  def determineBobReply(statement: String): String = {
+    if (statement.matches("""^\s*\d+(\s*,\s*\d+)*\s*$""")) "Whatever."
+    else {
+      val strippedQuestion = statement.replaceAll("[^a-zA-Z?]", "").replaceAll(" ", "")
+      if (strippedQuestion.matches("^[A-Z\\s]+\\?$") && strippedQuestion.endsWith("?")) "Calm down, I know what I'm doing!"
+      else if (strippedQuestion.endsWith("?")) "Sure."
+      else if (strippedQuestion.matches("^[A-Z]+$")) "Whoa, chill out!"
+      else if (strippedQuestion.isEmpty) "Fine. Be that way!"
+      else "Whatever."
     }
-    else if (question.matches("^[A-Z]+$")) "Whoa,chill out!"
-    else if (question.matches("\\s")) "Fine. Be that way!"
-    else "Whatever."
   }
 }
