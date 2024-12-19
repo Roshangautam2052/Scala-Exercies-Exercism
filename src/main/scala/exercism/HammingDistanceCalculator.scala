@@ -12,7 +12,7 @@ package exercism
  *
  * GAGCCTACTAACGGGAT
  * CATCGTAATGACGGCCT
- * ^ ^ ^  ^ ^    ^^
+ * ^ ^ ^  ^ ^ ^^
  * They have 7 differences, and therefore the Hamming distance is 7.
  *
  * The Hamming distance is useful for lots of things in science, not just biology, so it's a nice phrase to be familiar with :)
