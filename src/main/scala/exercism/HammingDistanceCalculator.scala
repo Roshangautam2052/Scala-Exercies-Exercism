@@ -27,14 +27,12 @@ class HammingDistanceCalculator() {
 
   def calculateHammingDistance(firstWord: String, secondWord: String): Option[Int] = {
     if (firstWord.length != secondWord.length) {
-      println(s"The strings are of different length")
       None
     }
     else {
       val difference = firstWord.zip(secondWord).count{
         case(a,b) => a != b
       }
-      println(difference)
       Some(difference)
     }
   }
