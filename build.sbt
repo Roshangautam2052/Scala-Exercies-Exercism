@@ -8,4 +8,5 @@ lazy val root = (project in file("."))
   )
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.2.15" % Test,
+  "org.scala-lang" % "scala-reflect" % scalaVersion.value // For TypeTag
 )
