@@ -8,3 +8,4 @@ object Bearing {
   case object East extends Bearing("East")
   case object West extends Bearing("West")
 }
+
