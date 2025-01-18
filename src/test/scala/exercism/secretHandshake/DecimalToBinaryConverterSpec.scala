@@ -19,6 +19,10 @@ class DecimalToBinaryConverterSpec extends AnyWordSpec with Matchers{
       val inputNumber = 8
       decimalToBinaryConverter.convertDecimalToBinary(inputNumber) shouldBe Right(List(1,0,0,0))
     }
+    "return a reverted binary equivalent 8: (1000)  if the input number is 15 " in {
+      val inputNumber = 15
+      decimalToBinaryConverter.convertDecimalToBinary(inputNumber) shouldBe Right(List(1,1,1,1))
+    }
     "return a reverted binary equivalent 4:(100)  if the input number is 4 " in {
       val inputNumber = 4
       decimalToBinaryConverter.convertDecimalToBinary(inputNumber) shouldBe Right(List(1,0,0))
@@ -26,6 +30,14 @@ class DecimalToBinaryConverterSpec extends AnyWordSpec with Matchers{
     "return a reverted binary equivalent of 9:(1001) if the input number is 9 " in {
       val inputNumber = 9
       decimalToBinaryConverter.convertDecimalToBinary(inputNumber) shouldBe Right(List(1,0, 0, 1))
+    }
+    "return a reverted binary equivalent of 19:(10011) if the input number is 19 " in {
+      val inputNumber = 19
+      decimalToBinaryConverter.convertDecimalToBinary(inputNumber) shouldBe Right(List(1,0, 0, 1,1))
+    }
+    "return a reverted binary equivalent of 19:(10011) if the input number is 15 " in {
+      val inputNumber = 15
+      decimalToBinaryConverter.convertDecimalToBinary(inputNumber) shouldBe Right(List(1,1,1,1))
     }
     "return a reverted binary equivalent of 26:(11010) if the input number is 26 " in {
       val inputNumber = 26
