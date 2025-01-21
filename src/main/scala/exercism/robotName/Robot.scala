@@ -34,7 +34,6 @@ import com.mifmif.common.regex.Generex
   }
 
   def reset(): Option[String] = {
-    val generatedString = new Generex("^[A-Z]{2}\\d{3}$").random()
     this.name = None
     Some("Name removed successfully")
   }
