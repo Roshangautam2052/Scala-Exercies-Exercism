@@ -1,6 +1,8 @@
 package exercism.bankAccount
+
+// About the problem
+
 /**
- * Instructions:
  * Introduction
  * After years of filling out forms and waiting, you've finally acquired your banking license. This means you are now officially eligible to open your own bank, hurray!
  *
@@ -28,14 +30,35 @@ package exercism.bankAccount
  * Don't expose the "var" or mutable object to the outside world. So make them "private" and change the mutable object into immutable before you return it as a value.
  */
 trait BankAccount {
-  val accountNumber:Int
-  val openingBalance:Option[BigInt]
-  val currentBalance:Option[BigInt]
 
-  def closeAccount():String
-  def withDrawAmount(A:BigInt):Option[BigInt]
-  def getBalance:Option[BigInt]
-  def incrementBalance(increment:Int): Option[Int]
-  def openAccount(T:Person): BankAccount
+
+  def closeAccount(): String
+
+  def getBalance: Option[Int]
+
+  def incrementBalance(increment: Int): Option[Int]
+
+}
+
+object BankAccount {
+
+  def openAccount(initialDeposit:Option[Int]): BankAccount = new BankAccount {
+
+    private var currentBalance = initialDeposit
+
+    override def closeAccount():String = {
+      this.currentBalance = None
+      s"Your account has been closed"
+    }
+
+    override def getBalance: Option[Int] = this.currentBalance
+
+    override def incrementBalance(increment: Int): Option[Int] = {
+      val newBalance = currentBalance.getOrElse(0) + increment
+      currentBalance = Some(newBalance)
+      currentBalance
+    }
+  }
+
 
 }
