@@ -37,8 +37,7 @@ object RnaTranscription {
   private val dnaRnaTranscription: Map[Char, Char] = Map(
     'G' -> 'C',
     'C' -> 'G',
-    'T' -> 'A',
-    'A' -> 'U',
+    'T' -> 'A'
   )
 
   def toRna(dna: String): Option[String] = {
